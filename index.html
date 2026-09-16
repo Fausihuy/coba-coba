@@ -1,46 +1,168 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Formulir Data Diri (Pure HTML)</title>
+<meta charset="UTF-8">
+<title>Form Data Siswa</title>
+<style>
+  body{
+    font-family: Georgia, 'Times New Roman', serif;
+    background:#fff;
+    display:flex;
+    justify-content:center;
+    padding:30px;
+  }
+  .form-container{
+    border:1px solid #333;
+    padding:30px 40px;
+    width:420px;
+  }
+  h1{
+    text-align:center;
+    font-size:26px;
+    margin:0 0 10px;
+  }
+  hr{
+    border:none;
+    border-top:1px solid #333;
+    margin-bottom:20px;
+  }
+  .row{
+    display:flex;
+    align-items:flex-start;
+    margin-bottom:12px;
+  }
+  .row label{
+    width:150px;
+    flex-shrink:0;
+  }
+  .row .colon{
+    width:15px;
+    flex-shrink:0;
+  }
+  .row .field{
+    flex:1;
+  }
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  select,
+  textarea{
+    width:100%;
+    box-sizing:border-box;
+    font-family:inherit;
+    font-size:14px;
+    padding:3px 5px;
+    border:1px solid #999;
+  }
+  textarea{
+    resize:vertical;
+    height:80px;
+  }
+  .radio-group label,
+  .checkbox-group label{
+    margin-right:14px;
+    white-space:nowrap;
+  }
+  .checkbox-group{
+    display:flex;
+    flex-direction:column;
+  }
+  .checkbox-group label{
+    margin-bottom:4px;
+  }
+  .buttons{
+    margin-top:25px;
+    border-top:1px solid #333;
+    padding-top:15px;
+  }
+  .buttons button{
+    font-family:inherit;
+    font-size:14px;
+    padding:4px 16px;
+    margin-right:10px;
+    cursor:pointer;
+  }
+</style>
 </head>
 <body>
 
-    <h2>Form Profil User</h2>
+<form class="form-container" action="#" method="post">
+  <h1>FORM DATA SISWA</h1>
+  <hr>
 
-    <form action="#" method="POST">
-        <div>
-            <label for="nama">Nama Lengkap:</label><br>
-            <input type="text" id="nama" name="nama" placeholder="Masukkan nama" required>
-        </div>
-        <br>
+  <div class="row">
+    <label for="username">Username</label>
+    <div class="colon">:</div>
+    <div class="field"><input type="text" id="username" name="username"></div>
+  </div>
 
-        <div>
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password" placeholder="Masukkan password" required>
-        </div>
-        <br>
+  <div class="row">
+    <label for="password">Password</label>
+    <div class="colon">:</div>
+    <div class="field"><input type="password" id="password" name="password"></div>
+  </div>
 
-        <div>
-            <label for="tgl_lahir">Tanggal Lahir:</label><br>
-            <input type="date" id="tgl_lahir" name="tgl_lahir" required>
-        </div>
-        <br>
+  <div class="row">
+    <label for="nama">Nama Lengkap</label>
+    <div class="colon">:</div>
+    <div class="field"><input type="text" id="nama" name="nama_lengkap"></div>
+  </div>
 
-        <div>
-            <label for="hobi">Hobi:</label><br>
-            <input type="text" id="hobi" name="hobi" placeholder="Contoh: Membaca, Game, Coding">
-        </div>
-        <br>
+  <div class="row">
+    <label for="hp">No. Handphone</label>
+    <div class="colon">:</div>
+    <div class="field"><input type="text" id="hp" name="no_handphone"></div>
+  </div>
 
-        <div>
-            <label for="keterangan">Keterangan:</label><br>
-            <textarea id="keterangan" name="keterangan" rows="4" cols="30" placeholder="Tambahkan catatan atau bio singkat..."></textarea>
-        </div>
-        <br>
+  <div class="row">
+    <label for="email">E-Mail</label>
+    <div class="colon">:</div>
+    <div class="field"><input type="email" id="email" name="email"></div>
+  </div>
 
-        <button type="submit">Simpan Data</button>
-    </form>
+  <div class="row">
+    <label>Jenis Kelamin</label>
+    <div class="colon">:</div>
+    <div class="field radio-group">
+      <label><input type="radio" name="jenis_kelamin" value="Pria"> Pria</label>
+      <label><input type="radio" name="jenis_kelamin" value="Wanita"> Wanita</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <label>Hobi</label>
+    <div class="colon">:</div>
+    <div class="field checkbox-group">
+      <label><input type="checkbox" name="hobi[]" value="Menyanyi"> Menyanyi</label>
+      <label><input type="checkbox" name="hobi[]" value="Olahraga"> Olahraga</label>
+      <label><input type="checkbox" name="hobi[]" value="Membaca"> Membaca</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <label for="kompetensi">Kompetensi Keahlian</label>
+    <div class="colon">:</div>
+    <div class="field">
+      <select id="kompetensi" name="kompetensi">
+        <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
+        <option value="Teknik Komputer dan Jaringan">Teknik Komputer dan Jaringan</option>
+        <option value="Multimedia">Multimedia</option>
+        <option value="Akuntansi">Akuntansi</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <label for="alamat">Alamat</label>
+    <div class="colon">:</div>
+    <div class="field"><textarea id="alamat" name="alamat"></textarea></div>
+  </div>
+
+  <div class="buttons">
+    <button type="submit">Kirim</button>
+    <button type="reset">Reset</button>
+  </div>
+</form>
 
 </body>
 </html>
